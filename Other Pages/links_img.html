@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+
+<html lang = 'en'>
+  <head>
+    <title> Links, Images, Anchors </title>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+
+    <nav>
+      <p>
+        <!-- ./ is relative to the current dir of this webpage -->
+        <!-- ../ is relative to the parent dir of this webpage -->
+        Click <a href = './semantic.html'>here</a> to go to the semantic HTML section.<br>
+        Click <a href = './lists.html'>here</a> to go to the lists section.<br>
+        Click <a href = '../index.html'>here</a> to go to the homepage
+      </p>
+    </nav>
+
+    <!-- id can be added to any element for easy reference in CSS, JS and getting links to part of same webpage -->
+    <h2 id="Top_of_page">Welcome to Links, Images and Anchors Page</h2>
+
+    <!-- this is an absolute link - link to another website -->
+    <!-- format for abs links: protocol://domain/path -->
+    <!-- target = _blank is needed to open links in different tabs/windows depending on browser config-->
+    <!-- Note that rel attr is necessary for security purposes -->
+    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Click to Google</a>
+    <br>
+
+    <!-- Used for imgs, illustrations, diagram, code snippet -->
+    <figure>
+      <!-- Source must be .jpg, .png, .svg, .gif -->
+      <!-- alt represents the text displayed when image loading problems occur -->
+      <img 
+        src="https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/image8-2.jpg?width=500&height=300&name=image8-2.jpg"
+        alt="The Google logo">
+
+      <!-- Caption to the above image and must exist inside a <figure> element -->
+      <figcaption>The caption for the img</figcaption>
+    </figure>
+
+    <!-- to form link to id in the same webpage use # followed by id as value for the href attr-->
+    <p>Click <a href="#Top_of_page">here</a> to go to top of the webpage</p>
+
+  </body>
+</html>

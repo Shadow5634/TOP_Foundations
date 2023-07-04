@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+  </head>
+
+  <body>
+
+    <nav>
+      <p>
+        <!-- EXPLANATION COVERED IN LINKS/IMGS SECTION -->
+        Click <a href = './links_img.html'>here</a> to go to the links and images section.<br>
+        Click <a href = './semantic.html'>here</a> to go to the semantic HTML section.<br>
+        Click <a href = '../index.html'>here</a> to go to the homepage
+      </p>
+    </nav>
+
+    <h2>Welcome to the Lists Page</h2>
+
+    <b>Unordered List:</b>
+    <ul>
+      <li>Bullet Point 1</li>
+      <li>Bullet Point 2</li>
+    </ul>
+    
+    <b>Ordered List:</b>
+    <!-- mentioning reversed after ol keeps the list ordering but numbering starting from down-->
+    <ol start = '0'> <!-- start represents starting number of the ordered list-->
+      <li>Numbered Point 1</li>
+      <li>Numbered Point 2</li>
+      <li value = '3'>Changed number point 3</li>
+      <li>Numbered point 4</li> <!-- Numbering continues from the prev jumped val-->
+    </ol>
+
+    <b>Descriptive List:</b>
+    <!-- A descriptive list: typical use seems to be dictionary -->
+    <dl>
+      <dt>Apple</dt>
+      <dd>A red fruit that keeps the doctor away</dd>
+      <dd>Biggest competitor of laptops to Microsoft</dd>
+
+      <dt>Battle</dt>  <dt>War</dt>
+      <dd>Fight between two groups until someone withdraws</dd>
+    </dl>
+
+    <b>List Nesting:</b>
+    <!-- Example of nested lists -->
+    <ol>
+      <li>First Element</li>
+
+      <li>Second Element
+        <ol>
+          <li>First sub numbered Element</li>
+        </ol>
+        <ul>
+          <li>First sub unumbered Element</li>
+        </ul>
+      </li>
+    </ol>
+
+  </body>
+
+</html>
