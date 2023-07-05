@@ -1,0 +1,15 @@
+/* Selectors refer to html elements the styling options apply */
+/* One selector can be used to modify multiple elements */
+
+/* This is the universal tag that applies to every element */
+*
+{
+  /* Don't forget the semi-colon at the end of each pair */
+  color: rgb(0, 0, 0);
+}
+
+/* The type selector - used for a specific element type*/
+div
+{
+  color:aqua;
+}
