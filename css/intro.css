@@ -1,15 +1,97 @@
+/* ONLY USED BY css_intro.html */
+
 /* Selectors refer to html elements the styling options apply */
 /* One selector can be used to modify multiple elements */
 
-/* This is the universal tag that applies to every element */
+/* This is the universal tag that applies to every element. 
+Syntax: *  */
 *
 {
   /* Don't forget the semi-colon at the end of each pair */
   color: rgb(0, 0, 0);
 }
 
-/* The type selector - used for a specific element type*/
+/* The type selector - used for a specific element type. 
+Syntax: typeName*/
 div
 {
-  color:aqua;
+  /* this does not affect div p which is override by the * color setting everything to black */
+  color: blue;
+}
+
+/* The class selector - used to apply to multiple elements belonging to class. 
+Syntax: . + className */
+.spec_para
+{
+  color: purple;
+}
+
+/* The id selector - used to apply to the unique element containing id
+Syntax: # + idName */
+#web_titulo
+{
+  color:burlywood;
+}
+
+/* To apply common styles to a bunch of different selectors you can use the following 
+Elements with any one of these selectors are affected by this
+Syntax: selector1Syntax + , + selector2Syntax + , + selector3Syntax .................*/
+.spec_para,
+#web_titulo
+{
+  font-style: italic;
+}
+
+/* To apply stlyes to elements having all of the mentioned selectors. 
+Syntax: [NO SPACES] selector1Syntax + selector2Syntax + selector3Syntax ............*/
+p.norm_para
+{
+  font-size: x-large;
+}
+
+/* Unlike earlier method which is used to modify elements with multiple selectors */
+/* This method is used to modify elements that have some structure in the html file */
+/* The structures can be more or less covered with the following contributors */
+
+/* 1] Descendant contributor (SPACE)
+This contributor selects elements of the right selector which is a descendant of the left selector
+You can create any layers of nesting in this manner
+Syntax (Space in between): "selector1Syntax selector2Syntax selector3Syntax" */
+
+/* Affects all those paragraph elements which are descendant of a div 
+where the div must itself be a descendant of the type selector html*/
+div p
+{
+  font-weight: bold;
+  color: blue;
+}
+
+/* 2] Child contributor (>) 
+This contributor selects elements of the right selector which is a child (not all descendant) of left selector
+Syntax: selector1Syntax + > + selector2Syntax*/
+
+/* Affects all those paragraph elements that are direct children of a div element */
+div > p
+{
+  background-color: greenyellow;
+}
+
+/* 3] Adjacent sibling contributor (+) 
+This contributor selects elements of the right selector which is the immedite *next* sibling of left selector
+Syntax: "selector1Syntax + selector2Syntax" */
+
+/* Affects all p elements that *follow* a div */
+div + p
+{
+  background-color: aquamarine;
+}
+
+/* 3] General sibling contributor (~) 
+This contributor selects elements of the right selector that come sometime after the left selector
+Syntax: selector1Syntax + selector2Syntax */
+
+/* Affects all the h2 that come after a p (none for the css_intro.html file) */
+p ~ h2
+{
+  background-color: black;
 }
