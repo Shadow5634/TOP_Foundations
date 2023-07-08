@@ -1,0 +1,39 @@
+h2 /* type selector */
+{
+  /* color is used for text, background is element background - a square */
+  color: indigo;
+  background-color: lightblue;
+  text-align: center;
+  font-size: 40px; /*also keywords such as xxlarge, xsmall, normal*/
+}
+
+p
+{
+  /* between 0 and 1000 or bold(=700) */
+  font-weight: 900;
+  /* CSV,  start with font family in "" for spaces and 
+  end in generic family name - keywords without ""*/
+  font-family: "Times New Roman", calibri;
+}
+
+img + p
+{
+  /* rgb() or rgba()[latter for legacy]
+  the last paramter is alpha or opacity 0 - transparent, 1: fully present 
+  there is also hsl and hsla - read up later*/
+  color: rgba(0,0,0,0.5)
+}
+
+.hidden /* class selector */
+{
+  /* hides the text irrespective of background color */
+  color: transparent;
+}
+
+img
+{
+  /* keep one as auto and change the other field to scale proportionally */
+  /* always include these to reserve space for images - helpful if takes time to load */
+  height: auto;
+  width: 50vw; /*px, % => different options*/
+}
