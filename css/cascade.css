@@ -1,0 +1,106 @@
+/* STUFF NOT COVERED
+  * stylesheet origins
+  * layers (named and unnamed)
+  * attribute and pseudo-class selectors
+  * pseudo-elements and other :: selectors
+*/
+
+/* The cascade is the definition of which rules actually get applied */
+
+/* The keyword: "!important" can be applied at the end of prop value pairs (but before the semi-colon)
+This helps in overriding certain rules as we shall see later*/
+
+/* User-agent stylesheets: default stylesheets used by the web browser of the user */
+/* User stylesheets: stylesheets used by the user/viewer with styles for overrriding */
+/* Author stylesheets: the stylesheets made specifically for the website/webpage by the web developer of it */
+
+/* To figure out which rule wins you start considering along these lines (decreasing levels of importance) */
+/* 1] Origin and importance */
+/* 2] Specificity */
+/* 3] Ordering */
+
+/* 1] Origin and Importance */
+/* origin talks about how preferences for user-agent, user and author stylesheets work */
+/* Find out more about that here: https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#cascading_order */
+/* properties marked with !important always win out over non-important properties (even if diff origin) 
+if two conflicting rules are marked !important then you consider the other two aspects: specificity and ordering*
+
+/* 2] Specificity */
+/* - more specific rules win out over others 
+Calculate using specificity weight vectors 0-0-0-0 [inline-id-class-type]. Compare left to right choosing bigger number to win 
+Note that each vector element should represent the #times the feature occurs
+Therefore 0-1-0-0 wins over 0-0-99-99 and 0-0-2-0 wins over 0-0-1-99
+More or less specific === better or worse specificity weight vectors*/
+
+/* 2.A] Inline styles [1-0-0-0] are the most specific and can only be overwritten by !important rules
+Note however that no external css (author stylesheets) can override an inline !important rule
+It does seem however using javascript is a workaround*/
+
+/* overrides the inline css (not !important) of second h2 in the linked html */
+.hidden
+{
+  color: transparent !important;
+}
+
+/* is not able to override the inline css !important rule*/
+#start
+{
+  color: red !important;
+}
+
+/* 2.B] Id selectors [0-1-0-0] come next. Can be overwritten by inline css or more specific rules (utilising more #ids 
+or same #ids but more class and type selectors) or less specific rules marked !important.
+Id selectors with !important can only be overwritten by inline !important or more specific rules marked !important */
+
+#first_sent.sent
+{
+  color: black;
+}
+
+/* more specific than the next rule - id vs a class*/
+/* id font-style is applied but class font-weight is applied. !important takes cascade precendence over specificity 
+Note also how for color the more specific rule above wins for color than this one (both normal rules)*/
+#first_sent
+{
+  font-style: italic;
+  font-weight: 0;
+  color: red;
+}
+
+.sent
+{
+  font-style: normal;
+  font-weight: bold !important;
+}
+
+/* 2.C] Class selectors [0-0-1-0] come after that. Can be overwritten by inline css, id selectors or more specific
+rules (utilising more #classes or same #classes but more type selectors) or even less specific rules
+marked !important. Class selectors with !important can be overriden by inline, id or more specific rules with !imp */
+
+/* 2.D] Type selectors [0-0-0-1] come at the end. Can be overwritten by inline css, id and class selectors or 
+more specific rules (utilising more #types) or even less specific rules marked !important. 
+Type selectors with !important can be overriden by inline, id or class or more specific rules with !imp */
+
+/* 3] Rule Orders */
+/* For rules that match on importance and specificity, the rule located below wins
+Think of internal css as being placed below external css for this 
+Also note that the chaining selector and the combinators do not affect specificity
+The only way it affects cascade is by increasing the #selectors*/
+
+/* Here both rules have the same specificity of [0-0-0-2] i.e. only 2 type selectors
+As a result the one located below wins and the text appears black  */
+
+div > p
+{
+  color: red;
+}
+
+div p
+{
+  color: black;
+}
+
+/* For two rules first check important. If only one !important then that wins
+If both marked !important or both normal rules then check specificity
+Note that inline is the most specific followed by id, class and type (compare specificity weight vectors)
+Finally pick the one that is located at the end */
