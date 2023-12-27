@@ -23,3 +23,18 @@ document.body.appendChild(newPara)
 // set css properties to '' to remove inline/external css
 let firstPara = document.querySelector('p')
 firstPara.style.color = ''
+
+let btn = document.querySelector('button')
+btn.style['background-color'] = 'grey'
+btn.addEventListener('click', alertHello)
+btn.addEventListener('click', alertBYE)
+
+function alertHello(e)
+{
+  alert(e.target.toString())
+}
+
+function alertBYE(e)
+{
+  alert(e.target.style.backgroundColor)
+}
